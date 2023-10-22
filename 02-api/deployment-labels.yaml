@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: whoami-labels
+  name: whoami-labels
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: whoami-labels
+  template:
+    metadata:
+      labels:
+        app: whoami-labels
+    spec:
+      containers:
+      - image: traefik/whoami
+        name: whoami
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami-labels
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: whoami-labels

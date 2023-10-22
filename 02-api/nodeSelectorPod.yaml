@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world-ssd
+spec:
+  containers:
+  - name: hello-world-ssd
+    image: gcr.io/google-samples/hello-app:1.0
+  nodeSelector:
+    disk: ssd
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world-gpu
+spec:
+  containers:
+  - name: hello-world-gpu
+    image: gcr.io/google-samples/hello-app:1.0
+  nodeSelector:
+    hardware: gpu
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world
+spec:
+  containers:
+  - name: hello-world
+    image: gcr.io/google-samples/hello-app:1.0

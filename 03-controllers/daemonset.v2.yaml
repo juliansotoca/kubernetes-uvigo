@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: hello-app
+spec:
+  selector:
+    matchLabels:
+      name: hello-app
+  template:
+    metadata:
+      labels:
+        name: hello-app
+    spec:
+      containers:
+      - name: hello-app
+        image: gcr.io/google-samples/hello-app:2.0
+

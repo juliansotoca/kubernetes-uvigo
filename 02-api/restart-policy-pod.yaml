@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-onfailure-pod
+spec:
+  containers:
+  - name: busybox-app
+    image: busybox
+    command: ['sh', '-c', 'echo The Pod is running && sleep 5 && exit 1']
+  restartPolicy: OnFailure
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-never-pod
+spec:
+  containers:
+  - name: busybox-app
+    image: busybox
+    command: ['sh', '-c', 'echo The Pod is running && sleep 5 && exit 1']
+  restartPolicy: Never
