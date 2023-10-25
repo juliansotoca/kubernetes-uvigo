@@ -38,6 +38,7 @@ Como todo en kubernetes, podemos crear los namespaces imperativamente o declarat
 kubectl create namespace playground1
 kubectl apply -f namespace.yaml
 ```
+
 Verificamos que se han creado los nuevos namespaces:
 ```
 kubectl get namespaces

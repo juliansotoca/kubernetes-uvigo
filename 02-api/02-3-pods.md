@@ -124,7 +124,7 @@ kubectl apply -f nginxpod.yaml
 
 Vamos a abrir una sheel y ejecutar cualquier programa dentro del contenedor. Vamos a instalar el paquete procps para poder lanzar el comando pkill y mataremos el proceso de nginx:
 ```
-k exec -it nginx-pod -- /bin/bash
+kubectl exec -it nginx-pod -- /bin/bash
 apt update && apt install -y procps
 pkill nginx
 ```
