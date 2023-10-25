@@ -1,6 +1,6 @@
 # Curso de introducción a Kubernetes para la Universidad de Vigo
 1. Introducción
-* [Introducción](01-intro/01-intro.md)
+* [Introducción](01-intro/01-1-intro.md)
 * [Demo linode](01-intro/01-2-linode.md)
 
 2. API Server
