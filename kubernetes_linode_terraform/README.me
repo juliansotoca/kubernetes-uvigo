@@ -1,0 +1,18 @@
+# Running instructions
+
+export TF_VAR_linode_token="Put Your Linode Token Here"
+export TF_VAR_linode_token="c056dfc04404620dd206bcba352ddf37059169b22cfcd7b521c137184597a7e7"
+export TF_VAR_ssh_key="~/.ssh/id_rsa.pub"
+terraform init
+terraform apply
+
+
+Linode provider:
+https://registry.terraform.io/providers/linode/linode/latest/docs
+
+Linode Types:
+https://api.linode.com/v4/linode/types
+
+
+List of deployed instances:
+curl -s -H "Authorization: Bearer $TF_VAR_linode_token" https://api.linode.com/v4/linode/instances | jq -r '.data[] | "\(.label): \(.ipv4[])"'

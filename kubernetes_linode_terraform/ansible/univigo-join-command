@@ -1,0 +1,1 @@
+kubeadm join 72.14.186.223:6443 --token q5nkgu.tsvyteo771szwky4 --discovery-token-ca-cert-hash sha256:9276ae25f54e8de7f4a371486888f26df31c3c7ccba7d5a771d02d8120737ec4 
