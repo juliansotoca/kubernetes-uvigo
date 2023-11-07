@@ -24,7 +24,7 @@ ssh node1
 ```
 Probaremos si la conexión NFS funciona montando el volumen en /mnt
 ```
-mount -t nfs4 45.56.72.61:/export/volumes /mnt
+mount -t nfs4 104.237.136.55:/export/volumes /mnt
 ```
 Si funciona desmontamos el volumen:
 ```
@@ -55,7 +55,7 @@ kubectl describe persistentvolumeclaims pvc-nfs-data
 Vamos a crear un fichero dentro del volumen NFS, para ello volvemos a conectarnos al servidor nfs y creamos el fichero con el comando echo:
 ```
 ssh nfs
-sudo bash -c 'echo "hello from our NFS mount!!!" > /export/volumes/pod/demo.html'
+ bash -c 'echo "hello from our NFS mount!!!" > /export/volumes/pod/demo.html'
 more /export/volumes/pod/demo.html
 ```
 
@@ -99,7 +99,7 @@ curl http://$SERVICEIP/web-app/demo.html
 
 Podemos eliminar ya el deployment, el service, el PV y PVC
 ```
-kubectl apply -f nfs.pv.yaml
-kubectl apply -f nfs.pvc.yaml
-kubectl apply -f nfs.nginx.yaml
+kubectl delete -f nfs.pv.yaml
+kubectl delete -f nfs.pvc.yaml
+kubectl delete -f nfs.nginx.yaml
 ```

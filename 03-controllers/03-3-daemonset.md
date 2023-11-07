@@ -20,7 +20,7 @@ kubectl get pods -o wide
 
 Veamos el detalle del deaemon set:
 ```
-kubectl describe daemonsets hello-world
+kubectl describe daemonsets hello-app
 ```
 
 Cada pod se genera con varios labels: controller-revision-hash y pod-template-generation:
@@ -30,9 +30,9 @@ kubectl get pods --show-labels
 
 Si cambiamos el label a uno de nuestros pods, tendremos un nuevo pod lanzado por el daemonset controller:
 ```
-MYPOD=$(kubectl get pods -l app=hello-world | grep hello-world | head -n 1 | awk {'print $1'})
+MYPOD=$(kubectl get pods -l name=hello-app | grep hello-app | head -n 1 | awk {'print $1'})
 echo $MYPOD
-kubectl label pods $MYPOD app=not-hello-world --overwrite
+kubectl label pods $MYPOD name=not-hello-world --overwrite
 kubectl get pods --show-labels
 ```
 

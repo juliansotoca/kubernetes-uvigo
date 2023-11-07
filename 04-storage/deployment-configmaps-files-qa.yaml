@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world-configmaps-files-qa
+  name: nginx-configmaps-files-qa
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world-configmaps-files-qa
+      app: nginx-configmaps-files-qa
   template:
     metadata:
       labels:
-        app: hello-world-configmaps-files-qa
+        app: nginx-configmaps-files-qa
     spec:
       volumes:
         - name: appconfig
           configMap:
             name: appconfigqa
       containers:
-      - name: hello-world
-        image: gcr.io/google-samples/hello-app:1.0
+      - name: nginx
+        image: nginx
         ports:
         - containerPort: 8080
         volumeMounts:

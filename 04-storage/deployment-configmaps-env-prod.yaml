@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world-configmaps-env-prod
+  name: nginx-configmaps-env-prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world-configmaps-env-prod
+      app: nginx-configmaps-env-prod
   template:
     metadata:
       labels:
-        app: hello-world-configmaps-env-prod
+        app: nginx-configmaps-env-prod
     spec:
       containers:
-      - name: hello-world
-        image: gcr.io/google-samples/hello-app:1.0
+      - name: nginx
+        image: nginx
         envFrom:
           - configMapRef:
               name: appconfigprod

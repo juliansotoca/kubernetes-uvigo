@@ -7,7 +7,7 @@ cd ansible
 ansible-playbook k8s.yml -i inventory -l master,k8s_workers
 ```
 
-Inicializar el cluster
+Inicializar el cluster (se hace automáticamente con ansible)
 ```
 kubeadm init --pod-network-cidr=192.168.0.0/16 --kubernetes-version 1.26.5
 

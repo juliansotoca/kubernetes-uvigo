@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world-alpha
+  name: nginx-alpha
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world-alpha
+      app: nginx-alpha
   template:
     metadata:
       labels:
-        app: hello-world-alpha
+        app: nginx-alpha
     spec:
       containers:
-      - name: hello-world
-        image: gcr.io/google-samples/hello-app:1.0
+      - name: nginx
+        image: nginx
         env:
         - name: DATABASE_SERVERNAME
           value: "sql.example.local"
@@ -26,10 +26,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-world-alpha
+  name: nginx-alpha
 spec:
   selector:
-    app: hello-world-alpha
+    app: nginx-alpha
   ports:
     - protocol: TCP
       port: 80
